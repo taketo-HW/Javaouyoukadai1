@@ -14,26 +14,6 @@ public class HelloController {
 
     @Autowired
     private JdbcTemplate jdbcTemplate;
-
-    @GetMapping("/hello")
-    public String sayHello() {
-        return "Hello, Docker World!";
-    }
-
-    @GetMapping("/hoge")
-    public String sayHoge() {
-        return "hogehogehoge";
-    }
-
-    @GetMapping("/check-db")
-    public String checkDbConnection() {
-        try {
-            jdbcTemplate.queryForObject("SELECT 1", Integer.class); // MySQLへの接続確認
-            return "Database connection is successful!";
-        } catch (Exception e) {
-            return "Database connection failed!";
-        }
-    }
     @GetMapping("/users")
     public List<User> getUsers() {
         // モックデータのリストを返す
